@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>	
+		<record model="ir.ui.view" id="upobebe_reparacion_form">
+			<field name="name">upobebe_reparacion_form</field>
+			<field name="model">upobebe.reparacion</field>
+			<field name="arch" type="xml">
+				<form string="Reparaciones">
+					<header>
+						<button name="btn_submit_to_recopilar" string="Recopilar piezas"
+							type="object" class="oe_highlight" states="pendiente" />
+						<button name="btn_submit_to_comenzar" string="Comenzar reparación"
+							type="object" class="oe_highlight" states="recopilar" />
+						<button name="btn_submit_to_reparado" string="Finalizar reparación"
+							type="object" class="oe_highlight" states="comenzar" />
+							<field name='state' widget='statusbar' />
+					</header>
+					<group string="Reparaciones">
+						<group>
+							<field name="id" />
+							<field name="name" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="tipo" />
+									<field name="descripcion" />
+									<field name="precio" />
+									<field name="fecha" />
+									<field name="taller_id" />
+									<field name="numeroVentas" />
+								</group>
+							</page>
+							<page string="Ventas que repara">
+								<group colspan="4">
+									<field name="venta_ids">
+										<tree>
+											<field name="id" />
+											<field name="comentarios" />
+											<field name="cliente_id" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>						
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_reparacion_tree">
+			<field name="name">Reparaciones</field>
+			<field name="model">upobebe.reparacion</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of reparaciones">
+					<field name="id" />
+					<field name="name" />
+					<field name="tipo" />
+					<field name="descripcion" />
+					<field name="fecha" />
+					<field name="taller_id" />
+					<field name="numeroVentas" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_reparacion_calendar">
+			<field name="name">view_upobebe_reparacion_calendar</field>
+			<field name="model">upobebe.reparacion</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Reparaciones" color="tipo"
+					date_start="fecha" date_stop="fecha" mode="month">
+					<field name="name" />
+					<field name="fecha" />
+					<field name="taller_id" />
+				</calendar>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_reparacion_search">
+			<field name="name">view_upobebe_reparacion_search</field>
+			<field name="model">upobebe.reparacion</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Reparaciones">
+					<group expand="0" string="Agrupar por…">
+						<filter name="group_by_tipo" string="Tipo de reparación" context="{'group_by':'tipo'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_reparacion_graph">
+			<field name="name">Reparaciones</field>
+			<field name="model">upobebe.reparacion</field>
+			<field name="arch" type="xml">
+				<graph string="Tipo de reparación" type="pie">
+					<field name="tipo" type="row"/>
+					<field name="tipo" type="measure"/>
+				</graph>
+			</field>
+		</record>
+	
+		<record id="act_reparacion" model="ir.actions.act_window">
+			<field name="name">Reparaciones</field>
+			<field name="res_model">upobebe.reparacion</field>
+			<field name="view_mode">tree,form,calendar,graph</field>
+			<field name="search_view_id" ref="view_upobebe_reparacion_search"/>
+		</record>
+		<menuitem id="upobebe" name="UpoBebe" action="act_reparacion" />
+		<menuitem name="Reparaciones" id="reparacion_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver reparaciones" id="reparacion_submenu_2"
+			parent="reparacion_submenu" sequence="110" action="act_reparacion" />
+	</data>
+</odoo>

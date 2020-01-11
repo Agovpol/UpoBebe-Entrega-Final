@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_expansion_tarjeta_form">
+			<field name="name">Upobebe tarjeta</field>
+			<field name="model">upobebe_expansion.tarjeta</field>
+			<field name="arch" type="xml">
+				<form string="Form de articulos">
+					<group string="Artículos">
+						<field name="name" />
+						<field name="cantidad" />
+						<field name="materialType" />
+						<field name="cliente_ids" />
+						<field name="venta_ids" />
+					</group>
+
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="upobebe_expansion_tarjeta_tree">
+			<field name="name">Upobebe tarjeta</field>
+			<field name="model">upobebe_expansion.tarjeta</field>
+			<field name="arch" type="xml">
+				<tree string="Lista de tarjetas">
+					<field name="name" />
+					<field name="cantidad" />
+					<field name="materialType" />
+					<field name="cliente_ids" />
+					<field name="venta_ids" /> 
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_expansion_tarjeta_search">
+			<field name="name">view_upobebe_expansion_tarjeta_search</field>
+			<field name="model">upobebe_expansion.tarjeta</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Tarjetas">
+					<group expand="0" string="Agrupar por…">
+						<filter name="group_by_materialType" string="Tipo tarjeta" context="{'group_by':'materialType'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_expansion_tarjeta_graph">
+			<field name="name">Tarjetas</field>
+			<field name="model">upobebe_expansion.tarjeta</field>
+			<field name="arch" type="xml">
+				<graph string="Tipo de tarjeta" type="pie">
+					<field name="materialType" type="row"/>
+					<field name="materialType" type="measure"/>
+				</graph>
+			</field>
+		</record>	
+
+		<record id="act_tarjeta" model="ir.actions.act_window">
+			<field name="name">Upobebe tarjeta</field>
+			<field name="res_model">upobebe_expansion.tarjeta</field>
+			<field name="view_mode">tree,form,graph</field>
+			<field name="search_view_id" ref="view_upobebe_expansion_tarjeta_search"/>
+		</record>
+
+		<menuitem id="upobebe_expansion_submenu" name="Upobebe Expansion"
+			parent="upobebe.upobebe" />
+		<menuitem name="Ver tarjetas" id="tarjeta_submenu_2"
+			parent="upobebe_expansion_submenu" sequence="100" action="act_tarjeta"/>
+		<!-- <menuitem name="Ver clases" id="gymclasses_submenu_2" parent="gymclasses_submenu" 
+			sequence="100" action="act_gymclass" /> -->
+	</data>
+</odoo> 

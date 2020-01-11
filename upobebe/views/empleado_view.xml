@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_empleado_form">
+			<field name="name">upobebe_empleado_form</field>
+			<field name="model">upobebe.empleado</field>
+			<field name="arch" type="xml">
+				<form string="Empleados">
+					<group string="Empleados">
+		<!-- 			<header>
+							<button name="btn_submit_to_entregado" string="Entregar"
+								type="object" class="oe_highlight" states="en proceso de envio" />
+								<field name='estado' widget='statusbar' />
+		 				</header>	-->	
+						<group>
+							<field name="id" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="name" />
+									<field name="apellidos" />
+									<field name="salario" />
+									<field name="direccion" />
+									<field name="correo" />
+									<field name="rol" />
+									<field name="fechaini" />
+									<field name="fechafin" />
+									<field name="numero" />
+									<field name="cp" />
+									<field name="numeroCompras" /> 
+								</group>
+							</page>
+							<page string="Ha comprado a proveedores">
+								<group colspan="4">
+									<field name="compra_ids">
+										<tree>
+											<field name="id" />
+											<field name="fecha" />
+											<field name="numeroArticulos" />
+											<field name="numeroProveedor" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+					<newline></newline> 
+					<button name="eliminarCompras" string="Eliminar compras" type="object"></button> 
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_empleado_tree">
+			<field name="name">Empleados</field>
+			<field name="model">upobebe.empleado</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of empleados">
+						<field name="name" />
+						<field name="apellidos" />
+						<field name="id" />
+						<field name="salario" />
+				<!-- 	<field name="start" />
+						<field name="end" />		-->
+						<field name="direccion" />
+						<field name="correo" />
+						<field name="rol" />
+						<field name="fechaini" />
+						<field name="fechafin" />
+						<field name="numero" />
+						<field name="cp" />
+						<field name="numeroCompras" /> 
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_empleado_calendar">
+			<field name="name">view_upobebe_empleado_calendar</field>
+			<field name="model">upobebe.empleado</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Empleados" color="rol"
+					date_start="fechaini" date_stop="fechafin" mode="month">
+					<field name="name" />
+					<field name="apellidos" />
+					<field name="id" />
+				</calendar>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_empleado_search">
+			<field name="name">view_upobebe_empleado_search</field>
+			<field name="model">upobebe.empleado</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Empleados">
+					<filter string="Salario > 2500" domain="[('salario','>',2500)]" />
+					<filter string="Salario > 2000" domain="[('salario','>',2000)]" />
+					<filter string="Salario &lt; 1500" domain="[('salario','&lt;',1500)]" />
+					<filter string="Salario &lt; 1000" domain="[('salario','&lt;',1000)]" />
+					<separator orientation="vertical" />
+					<field name="compra_ids" />
+					<field name="rol" />
+					<group expand="0" string="Agrupar por…">
+						<filter name="group_by_rol" string="Rol" context="{'group_by':'rol'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_empleado_graph">
+			<field name="name">Empleados</field>
+			<field name="model">upobebe.empleado</field>
+			<field name="arch" type="xml">
+				<graph string="Rol de los empleados" type="pie">
+					<field name="rol" type="row"/>
+					<field name="rol" type="measure"/>
+				</graph>
+			</field>
+		</record>
+	
+		<record id="act_empleado" model="ir.actions.act_window">
+			<field name="name">Empleados</field>
+			<field name="res_model">upobebe.empleado</field>
+			<field name="view_mode">tree,form,calendar,graph</field>
+			<field name="search_view_id" ref="view_upobebe_empleado_search"/>
+		</record>
+		<menuitem name="Empleados" id="empleado_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver empleados" id="empleado_submenu_2"
+			parent="empleado_submenu" sequence="110" action="act_empleado" />
+	</data>
+</odoo>

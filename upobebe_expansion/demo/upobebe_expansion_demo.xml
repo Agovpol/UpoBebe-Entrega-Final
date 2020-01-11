@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo> 
+	 	<data noupdate="1"> 
+	 	 	<record id="cliente10" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Danilo</field> 
+	 	 	 	<field name="apellidos">Hermoso Torres</field> 
+	 	 	 	<field name="dni">35261738I</field> 
+	 	 	 	<field name="numero">600980867</field> 
+	 	 	 	<field name="direccion">Calle Nervión, 21</field> 
+	 	 	 	<field name="correo">danilogal@gmail.es</field> 
+	 	 	 	<field name="cp">40008</field> 
+	 	 	</record> 
+	 	 	<record id="cliente11" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Valeria</field> 
+	 	 	 	<field name="apellidos">Carmona Hidalgo</field> 
+	 	 	 	<field name="dni">89908976P</field> 
+	 	 	 	<field name="numero">688765546</field> 
+	 	 	 	<field name="direccion">Calle Albacete, 8, 1C</field> 
+	 	 	 	<field name="correo">valcarhid@gmail.com</field> 
+	 	 	 	<field name="cp">40010</field> 
+	 	 	</record> 
+	 	 	<record id="cliente12" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Carlota</field> 
+	 	 	 	<field name="apellidos">Blanco Prats</field> 
+	 	 	 	<field name="dni">87657109U</field> 
+	 	 	 	<field name="numero">612345261</field> 
+	 	 	 	<field name="direccion">Avenida Central, 120</field> 
+	 	 	 	<field name="correo">carl@gmail.com</field> 
+	 	 	 	<field name="cp">40110</field> 
+	 	 	</record>
+	 	 	
+	 	 	<record id="tarjeta1" model="upobebe_expansion.tarjeta"> 
+	 	 	 	<field name="name">50%</field> 
+	 	 	 	<field name="cantidad">1</field> 
+	 	 	 	<field name="materialType">descuento</field> 
+	 	 	 	<field name="cliente_ids" 	eval="[(6, 0, [cliente11, ])]"></field> 
+	 	 	</record> 
+	 	 	<record id="tarjeta2" model="upobebe_expansion.tarjeta"> 
+	 	 	 	<field name="name">100$ TARJETA REGALO</field> 
+	 	 	 	<field name="cantidad">1</field> 
+	 	 	 	<field name="materialType">dinero</field> 
+	 	 	 	<field name="cliente_ids" 	eval="[(6, 0, [cliente10, ])]"></field> 
+	 	 	</record> 
+	 	 	<record id="tarjeta3" model="upobebe_expansion.tarjeta"> 
+	 	 	 	<field name="name">15%</field> 
+	 	 	 	<field name="cantidad">1</field> 
+	 	 	 	<field name="materialType">descuento</field> 
+	 	 	 	<field name="cliente_ids" 	eval="[(6, 0, [cliente12, ])]"></field> 
+	 	 	</record> 
+	 	</data> 
+</odoo> 

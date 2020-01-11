@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<!-- Form View -->
+		<record model="ir.ui.view" id="view_upobebe_expansion_cliente_form">
+			<field name="name">view_upobebe_expansion_cliente_form</field>
+			<field name="model">upobebe.cliente</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="upobebe.upobebe_cliente_form" />
+			<field name="arch" type="xml">
+				<data>
+					<field name="venta_ids" position="after">
+						<field name="tarjeta_ids"/>
+					</field>
+				</data>
+			</field>
+		</record>
+
+	</data>
+</odoo>

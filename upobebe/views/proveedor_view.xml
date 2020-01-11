@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_proveedor_form">
+			<field name="name">upobebe_proveedor_form</field>
+			<field name="model">upobebe.proveedor</field>
+			<field name="arch" type="xml">
+				<form string="Proveedores">
+					<group string="Proveedores">
+		<!-- 			<header>
+							<button name="btn_submit_to_entregado" string="Entregar"
+								type="object" class="oe_highlight" states="en proceso de envio" />
+								<field name='estado' widget='statusbar' />
+		 				</header>	-->	
+		 				<group>
+							<field name="nif" />
+							<field name="sede" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="name" />
+									<field name="direccion" />
+									<field name="numero" />
+									<field name="correo" />
+									<field name="cp" />
+									<field name="numeroCompras" />
+								</group>
+							</page>
+							<page string="Ha vendido">
+								<group colspan="4">
+									<field name="compra_ids">
+										<tree>
+											<field name="id" />
+											<field name="fecha" />
+											<field name="numeroArticulos" />
+											<field name="numeroProveedor" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_proveedor_tree">
+			<field name="name">Proveedores</field>
+			<field name="model">upobebe.proveedor</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of proveedores">
+						<field name="name" />
+						<field name="nif" />
+						<field name="direccion" />
+						<field name="numero" />
+						<field name="correo" />
+						<field name="sede" />
+						<field name="cp" />
+						<field name="numeroCompras" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_upobebe_proveedor_search">
+			<field name="name">view_upobebe_proveedor_search</field>
+			<field name="model">upobebe.proveedor</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Proveedores">
+					<group expand="0" string="Agrupar por…">
+						<filter name="group_by_sede" string="Sede" context="{'group_by':'sede'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_proveedor_graph">
+			<field name="name">Proveedores</field>
+			<field name="model">upobebe.proveedor</field>
+			<field name="arch" type="xml">
+				<graph string="Sede de los proveedores" type="pie">
+					<field name="sede" type="row"/>
+					<field name="sede" type="measure"/>
+				</graph>
+			</field>
+		</record>
+	
+		<record id="act_proveedor" model="ir.actions.act_window">
+			<field name="name">Proveedores</field>
+			<field name="res_model">upobebe.proveedor</field>
+			<field name="view_mode">tree,form,graph</field>
+			<field name="search_view_id" ref="view_upobebe_proveedor_search"/>
+		</record>
+		<menuitem name="Proveedores" id="proveedor_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver proveedores" id="proveedor_submenu_2"
+			parent="proveedor_submenu" sequence="110" action="act_proveedor" />
+	</data>
+</odoo>

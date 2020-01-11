@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_cliente_form">
+			<field name="name">upobebe_cliente_form</field>
+			<field name="model">upobebe.cliente</field>
+			<field name="arch" type="xml">
+				<form string="Clientes">
+					<group string="Clientes">
+						<group>
+							<field name="dni" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="name" />
+									<field name="apellidos"/>
+									<field name="numero" />
+									<field name="direccion" />
+									<field name="correo" />
+									<field name="cp" />
+									<field name="numeroVentas" />
+								</group>
+							</page>
+							<page string="Ha comprado">
+								<group colspan="4">
+									<field name="venta_ids">
+										<tree>
+											<field name="id" />
+											<field name="fecha" />
+											<field name="importe" />
+											<field name="comentarios" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_cliente_tree">
+			<field name="name">Clientes</field>
+			<field name="model">upobebe.cliente</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of clientes">
+						<field name="name" />
+						<field name="apellidos" />
+						<field name="dni" />
+						<field name="numero" />
+						<field name="direccion" />
+						<field name="correo" />
+						<field name="cp" />
+						<field name="numeroVentas" />
+				</tree>
+			</field>
+		</record>
+	
+		<record id="act_cliente" model="ir.actions.act_window">
+			<field name="name">Clientes</field>
+			<field name="res_model">upobebe.cliente</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Clientes" id="cliente_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver clientes" id="cliente_submenu_2"
+			parent="cliente_submenu" sequence="110" action="act_cliente" />
+	</data>
+</odoo>

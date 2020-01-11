@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo> 
+	 	<data noupdate="1"> 
+	 	 	<record id="cliente1" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Carmela</field> 
+	 	 	 	<field name="apellidos">Torres Bilbao</field> 
+	 	 	 	<field name="dni">80764129T</field> 
+	 	 	 	<field name="numero">600980765</field> 
+	 	 	 	<field name="direccion">Avenida Alhambra, 23, 4D</field> 
+	 	 	 	<field name="correo">cartorbil@gmail.com</field> 
+	 	 	 	<field name="cp">40980</field> 
+	 	 	</record> 	
+	 	 	<record id="cliente2" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Juan Pablo</field> 
+	 	 	 	<field name="apellidos">Arias Figueroa</field> 
+	 	 	 	<field name="dni">45609079K</field> 
+	 	 	 	<field name="numero">701987659</field> 
+	 	 	 	<field name="direccion">Calle Madrid, 5, 1B</field> 
+	 	 	 	<field name="correo">juanpabloar@gmail.es</field> 
+	 	 	 	<field name="cp">47908</field> 
+	 	 	</record> 	 	 	
+	 	 	<record id="cliente3" model="upobebe.cliente"> 
+	 	 	 	<field name="name">Rosa</field> 
+	 	 	 	<field name="apellidos">Gallego Campuzano</field> 
+	 	 	 	<field name="dni">21906520C</field> 
+	 	 	 	<field name="numero">697250190</field> 
+	 	 	 	<field name="direccion">Calle Central, 13, 2A</field> 
+	 	 	 	<field name="correo">rosgalcamp@yahoo.com</field> 
+	 	 	 	<field name="cp">44560</field> 
+	 	 	</record> 	 
+	 	 		 
+	 	    <record id="articulo1" model="upobebe.articulo"> 
+	 	 	 	<field name="name">Pelota Sensorial Lanco Luna multicolor</field> 
+	 	 	 	<field name="precio">13.50</field> 
+	 	 	 	<field name="descripcion">Está hecha de caucho natural totalmente biodegradable y sostenible. Hecha a mano, decorada con pigmentos de calidad alimentaria y hermética siendo totalmente segura para el bebé</field> 
+	 	 	</record> 	 	 	
+	 	 	<record id="articulo2" model="upobebe.articulo"> 
+	 	 	 	<field name="name">Cuna (60 x 120 cm.) Micuna Cosmic blanco/Nordic beige</field> 
+	 	 	 	<field name="precio">304</field> 
+	 	 	 	<field name="descripcion">3 posiciones de somier para facilitar el descanso del bebé.Lateral móvil para un mejor acceso al interior de la Cuna.Incluye 4 ruedas, 2 con freno para mayor seguridad.</field> 
+	 	 	</record>  	 	
+	 	 	<record id="articulo3" model="upobebe.articulo"> 
+	 	 	 	<field name="name">Parque de viaje Jané Travel Fun Toys gris</field> 
+	 	 	 	<field name="precio">102</field> 
+	 	 	 	<field name="descripcion">Plegado de reducidas dimensiones.Incorpora ruedas para su fácil transporte y ventana con cremallera.Incluye Barra de juegos y Colchoneta de 90 x 90 cm.</field> 
+	 	 	</record> 
+	 	 	
+	 	 	<record id="empleado1" model="upobebe.empleado"> 
+	 	 	 	<field name="name">Francisco</field> 
+	 	 	 	<field name="apellidos">Puerto Lasar</field> 
+	 	 	 	<field name="salario">2400</field> 
+	 	 	 	<field name="direccion">Plaza Pablo Picasso, 9, 1C</field> 
+	 	 	 	<field name="correo">franpuerto@gmail.com</field> 
+	 	 	 	<field name="rol">contable</field>
+	 	 	 	<field name="numero">600980765</field> 
+	 	 	 	<field name="fechaini">12/02/2019</field>
+	 	 	 	<field name="cp">46894</field> 
+	 	 	 	<field name="fechafin">12/02/2021</field>
+	 	 	</record> 
+	 	 	<record id="empleado2" model="upobebe.empleado"> 
+	 	 	 	<field name="name">Marina</field> 
+	 	 	 	<field name="apellidos">Luna Campomar</field> 
+	 	 	 	<field name="salario">1780</field> 
+	 	 	 	<field name="direccion">Avenida Libertades, 34, 5B</field> 
+	 	 	 	<field name="correo">marlib@gmail.com</field> 
+	 	 	 	<field name="rol">director</field>
+	 	 	 	<field name="numero">600929812</field> 
+	 	 	 	<field name="fechaini">12/02/2018</field>
+	 	 	 	<field name="cp">42093</field> 
+	 	 	 	<field name="fechafin">12/02/2020</field>
+	 	 	</record> 
+	 	 	<record id="empleado3" model="upobebe.empleado"> 
+	 	 	 	<field name="name">Laura</field> 
+	 	 	 	<field name="apellidos">Robles Ansaldi</field> 
+	 	 	 	<field name="salario">1000</field> 
+	 	 	 	<field name="direccion">Plazoleta Galileo GAlilei, 1, 2A</field> 
+	 	 	 	<field name="correo">larrob@gmail.com</field> 
+	 	 	 	<field name="rol">dependiente</field>
+	 	 	 	<field name="numero">689765463</field> 
+	 	 	 	<field name="fechaini">06/11/2019</field>
+	 	 	 	<field name="cp">40090</field> 
+	 	 	 	<field name="fechafin">08/10/2020</field>
+	 	 	</record> 
+	 	 	
+	 	 	<record id="proveedor1" model="upobebe.proveedor"> 
+	 	 	 	<field name="name">IKEA</field> 
+	 	 	 	<field name="nif">897687KO</field> 
+	 	 	 	<field name="direccion">Poligono Feria de Abril, 20</field> 
+	 	 	 	<field name="numero">901090807</field> 
+	 	 	 	<field name="correo">ikea@gmail.es</field> 
+	 	 	 	<field name="sede">madrid</field>
+	 	 	 	<field name="cp">42098</field> 
+	 	 	</record> 
+	 	 	<record id="proveedor2" model="upobebe.proveedor"> 
+	 	 	 	<field name="name">Corte Inglés</field> 
+	 	 	 	<field name="nif">1289352PL</field> 
+	 	 	 	<field name="direccion">Calle Duquesa, 2</field> 
+	 	 	 	<field name="numero">997898907</field> 
+	 	 	 	<field name="correo">corteingles@gmail.com</field> 
+	 	 	 	<field name="sede">sevilla</field>
+	 	 	 	<field name="cp">41023</field> 
+	 	 	</record>
+	 	 	<record id="proveedor3" model="upobebe.proveedor"> 
+	 	 	 	<field name="name">Amazon</field> 
+	 	 	 	<field name="nif">34564356JU</field> 
+	 	 	 	<field name="direccion">Poligono Puerta España, 5</field> 
+	 	 	 	<field name="numero">957896578</field> 
+	 	 	 	<field name="correo">amazon@gmail.es</field> 
+	 	 	 	<field name="sede">barcelona</field>
+	 	 	 	<field name="cp">48900</field> 
+	 	 	</record>
+	 	 	
+	 	 	<record id="extras1" model="upobebe.extras"> 
+	 	 	 	<field name="name">Añadir parasol</field> 
+	 	 	 	<field name="descripcion">Se le añadirá una visera al producto en cuestión para proteger del sol.</field> 
+	 	 	 	<field name="precio">25</field> 
+	 	 	 	<field name="articulo_ids" 	eval="[(6, 0, [articulo3, ])]"></field> 	 	
+	 	 	</record>
+	 	 	<record id="extras2" model="upobebe.extras"> 
+	 	 	 	<field name="name">Añadir ruedas</field> 
+	 	 	 	<field name="descripcion">Se le añadirán ruedas al producto en cuestión para facilitar su transporte.</field> 
+	 	 	 	<field name="precio">35</field> 
+	 	 	 	<field name="articulo_ids" 	eval="[(6, 0, [articulo2, ])]"></field> 	 	
+	 	 	</record>
+	 	 	<record id="extras3" model="upobebe.extras"> 
+	 	 	 	<field name="name">Añadir acolchadores</field> 
+	 	 	 	<field name="descripcion">Se le añadirá protección extra al producto en cuestión mediante una serie de acolchadores.</field> 
+	 	 	 	<field name="precio">40</field> 
+	 	 	 	<field name="articulo_ids" 	eval="[(6, 0, [articulo2, ])]"></field> 
+	 	 	</record>
+	 	 	
+	 	 	<record id="reparacion1" model="upobebe.reparacion"> 
+	 	 	 	<field name="name">Pintura rosa</field> 
+	 	 	 	<field name="descripcion">Se pintará de rosa el producto especificado.</field> 
+	 	 	 	<field name="precio">6</field> 
+	 	 	 	<field name="fecha">25/12/2019</field> 
+	 	 	 	<field name="tipo">pintura</field>
+	 	 	 	<field name="state">recopilar</field> 
+	 	 	</record>
+	 	 	<record id="reparacion2" model="upobebe.reparacion"> 
+	 	 	 	<field name="name">Cambio ruedas</field> 
+	 	 	 	<field name="descripcion">Se reemplazarán las ruedas del producto especificado por otras completamente nuevas.</field> 
+	 	 	 	<field name="precio">25</field> 
+	 	 	 	<field name="fecha">03/01/2020</field> 
+	 	 	 	<field name="tipo">recambio</field>
+	 	 	 	<field name="state">pendiente</field> 
+	 	 	</record>
+	 	 	<record id="reparacion3" model="upobebe.reparacion"> 
+	 	 	 	<field name="name">Reparación Total</field> 
+	 	 	 	<field name="descripcion">Se reparará el productor especificado por completo.</field> 
+	 	 	 	<field name="precio">150</field> 
+	 	 	 	<field name="fecha">30/12/2019</field> 
+	 	 	 	<field name="tipo">completa</field>
+	 	 	 	<field name="state">comenzar</field> 
+	 	 	</record>
+	 	 	
+	 	 	<record id="taller1" model="upobebe.taller"> 
+	 	 	 	<field name="name">Carrasco e Hijos</field> 
+	 	 	 	<field name="nif">6456317PL</field> 
+	 	 	 	<field name="direccion">Calle Antonio Banderas, 78</field> 
+	 	 	 	<field name="cp">40560</field> 
+	 	 	 	<field name="numero">900040560</field> 
+	 	 	 	<field name="reparacion_ids" 	eval="[(6, 0, [reparacion1,reparacion3, ])]"></field> 
+	 	 	</record> 
+	 	 	<record id="taller2" model="upobebe.taller"> 
+	 	 	 	<field name="name">Taller Cruz Roja</field> 
+	 	 	 	<field name="nif">908767TY</field> 
+	 	 	 	<field name="direccion">Avenida Almirante Calderón, 1</field> 
+	 	 	 	<field name="cp">42345</field> 
+	 	 	 	<field name="numero">989786753</field> 
+	 	 	</record> 
+	 	 	<record id="taller3" model="upobebe.taller"> 
+	 	 	 	<field name="name">Padre Sevilla</field> 
+	 	 	 	<field name="nif">2313122ML</field> 
+	 	 	 	<field name="direccion">Avenida de la Paz, 9</field> 
+	 	 	 	<field name="cp">41012</field> 
+	 	 	 	<field name="numero">954097854</field> 
+	 	 	 	<field name="reparacion_ids" 	eval="[(6, 0, [reparacion2, ])]"></field> 
+	 	 	</record> 
+	 	 	
+	 	 	<record id="venta1" model="upobebe.venta"> 
+	 	 	 	<field name="name">46</field> 
+	 	 	 	<field name="importe">13.50</field> 
+	 	 	 	<field name="fecha">15/12/2019</field> 
+	 	 	 	<field name="comentarios">Una pelota.</field> 
+	 	 	 	<field name="state">pendiente</field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo1, ])]"></field> 
+	 	 	 	<field name="cliente_id" ref="cliente1"></field> 
+	 	 	</record>
+	 	 	<record id="venta2" model="upobebe.venta"> 
+	 	 	 	<field name="name">47</field> 
+	 	 	 	<field name="importe">406</field> 
+	 	 	 	<field name="fecha">08/12/2019</field> 
+	 	 	 	<field name="comentarios">Una cuna y un parque.</field> 
+	 	 	 	<field name="state">envio</field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo2,articulo3, ])]"></field> 
+	 	 	 	<field name="cliente_id" ref="cliente2"></field> 
+	 	 	</record> 
+	 	 	<record id="venta3" model="upobebe.venta"> 
+	 	 	 	<field name="name">48</field> 
+	 	 	 	<field name="importe">304</field> 
+	 	 	 	<field name="fecha">09/12/2019</field> 
+	 	 	 	<field name="comentarios">Una cuna.</field> 
+	 	 	 	<field name="state">entregado</field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo2, ], )]"></field> 
+	 	 	 	<field name="cliente_id" ref="cliente3"></field> 
+	 	 	 	<field name="reparacion_ids" eval="[(6, 0, [reparacion2, ], )]"></field>
+	 	 	</record> 
+	 	 	
+	 	 	<record id="compra1" model="upobebe.compra"> 
+	 	 	 	<field name="importe">65</field> 
+	 	 	 	<field name="fecha">10/12/2019</field> 
+	 	 	 	<field name="comentarios">Una pelota y un parque.</field> 
+	 	 	 	<field name="state">pendiente</field> 
+ 	 	 		<field name="proveedor_ids" 	eval="[(6, 0, [proveedor2,proveedor1, ])]"></field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo1,articulo3, ])]"></field> 
+	 	 	 	<field name="empleado_id" ref="empleado1"></field> 
+	 	 	</record>
+	 	 	<record id="compra2" model="upobebe.compra"> 
+	 	 	 	<field name="importe">250</field> 
+	 	 	 	<field name="fecha">31/12/2019</field> 
+	 	 	 	<field name="comentarios">Una cuna y un parque.</field> 
+	 	 	 	<field name="state">envio</field> 
+ 	 	 		<field name="proveedor_ids" 	eval="[(6, 0, [proveedor2, ])]"></field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo2,articulo3, ])]"></field> 
+	 	 	 	<field name="empleado_id" ref="empleado2"></field> 
+	 	 	</record>
+	 	 	<record id="compra3" model="upobebe.compra"> 
+	 	 	 	<field name="importe">200</field> 
+	 	 	 	<field name="fecha">01/01/2020</field> 
+	 	 	 	<field name="comentarios">Una cuna.</field> 
+	 	 	 	<field name="state">entregado</field> 
+ 	 	 		<field name="proveedor_ids" 	eval="[(6, 0, [proveedor3, ])]"></field> 
+ 	 	 		<field name="articulo_ids" 	eval="[(6, 0, [articulo2, ])]"></field> 
+	 	 	 	<field name="empleado_id" ref="empleado3"></field> 
+	 	 	</record>
+	 	 	
+	 	</data> 
+</odoo> 

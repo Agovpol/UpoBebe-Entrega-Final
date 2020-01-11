@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_compra_form">
+			<field name="name">upobebe_compra_form</field>
+			<field name="model">upobebe.compra</field>
+			<field name="arch" type="xml">
+				<form string="Compras">
+					<header>
+						<button name="btn_submit_to_enviado" string="Enviar"
+							type="object" class="oe_highlight" states="pendiente" />
+						<button name="btn_submit_to_entregado" string="Entregar"
+							type="object" class="oe_highlight" states="envio" />
+							<field name='state' widget='statusbar' />
+					</header>
+					<group string="Compras">
+		 				<group>
+							<field name="id" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="importe" />
+									<field name="fecha" />
+									<field name="comentarios" />
+									<field name="empleado_id" />
+									<field name="numeroArticulos" />
+									<field name="numeroProveedor" />
+								</group>
+							</page>
+							<page string="Proveedores">
+								<group colspan="4">
+									<field name="proveedor_ids">
+										<tree>
+											<field name="name" />
+											<field name="nif" />
+											<field name="sede" />
+											<field name="numero" />
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="Artículos">
+								<group colspan="4">
+									<field name="articulo_ids">
+										<tree>
+											<field name="name" />
+											<field name="precio" />
+											<field name="descripcion" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_compra_tree">
+			<field name="name">Compras</field>
+			<field name="model">upobebe.compra</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of compras">
+					<field name="id" />
+					<field name="importe" />
+					<field name="fecha" />
+					<field name="comentarios" />
+					<field name="empleado_id" />
+					<field name="numeroArticulos" />
+					<field name="numeroProveedor" />
+				</tree>
+			</field>
+		</record>
+	
+		<record model="ir.ui.view" id="view_upobebe_compra_calendar">
+			<field name="name">view_upobebe_compra_calendar</field>
+			<field name="model">upobebe.compra</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Compras" color="state"
+					date_start="fecha" date_stop="fecha" mode="month">
+					<field name="importe" />
+					<field name="comentarios" />
+					<field name="empleado_id" />
+				</calendar>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_compra_search">
+			<field name="name">view_upobebe_compra_search</field>
+			<field name="model">upobebe.compra</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Compras">
+					<filter string="Importe > 1000" domain="[('importe','>',1000)]" />
+					<filter string="Importe > 500" domain="[('importe','>',500)]" />
+					<filter string="Importe &lt; 500" domain="[('importe','&lt;',500)]" />
+					<filter string="Importe &lt; 250" domain="[('importe','&lt;',250)]" />
+					<separator orientation="vertical" />
+					<field name="articulo_ids" />
+					<field name="proveedor_ids" />
+					<field name="state" />
+					<group expand="0" string="Agrupar por…">
+						<filter name="group_by_state" string="Estado" context="{'group_by':'state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_compra_graph">
+			<field name="name">Compras</field>
+			<field name="model">upobebe.compra</field>
+			<field name="arch" type="xml">
+				<graph string="Estado de la compra" type="pie">
+					<field name="state" type="row"/>
+					<field name="state" type="measure"/>
+				</graph>
+			</field>
+		</record>												
+	
+		<record id="act_compra" model="ir.actions.act_window">
+			<field name="name">Compras</field>
+			<field name="res_model">upobebe.compra</field>
+			<field name="view_mode">tree,form,graph,calendar</field>
+			<field name="search_view_id" ref="view_upobebe_compra_search"/>
+		</record>
+		<menuitem id="upobebe" name="UpoBebe" action="act_compra" />
+		<menuitem name="Compras" id="compra_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver compras" id="compra_submenu_2"
+			parent="compra_submenu" sequence="110" action="act_compra" />
+	</data>
+</odoo>

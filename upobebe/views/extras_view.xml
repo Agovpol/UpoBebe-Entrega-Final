@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_extras_form">
+			<field name="name">upobebe_extras_form</field>
+			<field name="model">upobebe.extras</field>
+			<field name="arch" type="xml">
+				<form string="Extras">
+					<group string="Extras">
+						<group>
+							<field name="id" />
+							<field name="name" />
+						</group>
+						<group>
+							<field name="foto" nolabel="1" widget="image" style="width: 265px; height: 300px;" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="descripcion" />
+									<field name="precio" />
+									<field name="numeroArticulos" />
+								</group>
+							</page>
+							<page string="Artículos que tienen el extra">
+								<group colspan="4">
+									<field name="articulo_ids">
+										<tree>
+											<field name="name" />
+											<field name="id" />
+											<field name="descripcion" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>						
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_extras_tree">
+			<field name="name">Extras</field>
+			<field name="model">upobebe.extras</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of extras">
+					<field name="name" />
+					<field name="descripcion" />
+					<field name="precio" widget="monetary" />
+					<field name="id" />
+					<field name="numeroArticulos" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upobebe_extras_search">
+			<field name="name">view_upobebe_extras_search</field>
+			<field name="model">upobebe.extras</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="EXTRAS">
+					<filter string="Precio por unidad > 100" domain="[('precio','>',100)]" />
+					<filter string="Precio por unidad > 50" domain="[('precio','>',50)]" />
+					<filter string="Precio por unidad &lt; 50" domain="[('precio','&lt;',50)]" />
+					<filter string="Precio por unidad &lt; 25" domain="[('precio','&lt;',25)]" />
+					<separator orientation="vertical" />
+					<field name="articulo_ids" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+	
+		<record id="act_extras" model="ir.actions.act_window">
+			<field name="name">Extras</field>
+			<field name="res_model">upobebe.extras</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_upobebe_extras_search"/>
+		</record>
+		<menuitem id="upobebe" name="UpoBebe" action="act_extras" />
+		<menuitem name="Extras" id="extras_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver extras" id="extras_submenu_2"
+			parent="extras_submenu" sequence="110" action="act_extras" />
+	</data>
+</odoo>

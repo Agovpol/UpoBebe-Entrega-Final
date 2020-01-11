@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>	
+		<record model="ir.ui.view" id="upobebe_articulo_form">
+			<field name="name">upobebe_articulo_form</field>
+			<field name="model">upobebe.articulo</field>
+			<field name="arch" type="xml">
+				<form string="Articulos">
+					<group string="Articulos">
+						<group>
+							<field name="name" />
+							<field name="id" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="descripcion" />
+									<field name="precio" />
+									<field name="numeroVentas" />
+									<field name="numeroCompras" />
+									<field name="numeroExtras" />
+								</group>
+							</page>
+							<page string="Ventas de las que forma parte">
+								<group colspan="4">
+									<field name="venta_ids">
+										<tree>
+											<field name="id" />
+											<field name="fecha" />
+											<field name="comentarios" />
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="Compras de las que forma parte">
+								<group colspan="4">
+									<field name="compra_ids">
+										<tree>
+											<field name="id" />
+											<field name="fecha" />
+											<field name="comentarios" />
+											<field name="empleado_id" />
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="Extras que posee">
+								<group colspan="4">
+									<field name="extras_ids">
+										<tree>
+											<field name="name" />
+											<field name="descripcion" />
+											<field name="precio" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+					<newline></newline> 
+					<button name="eliminarVentas" string="Eliminar ventas" type="object"></button> 
+					<newline></newline> 
+					<button name="eliminarCompras" string="Eliminar compras" type="object"></button> 
+					<newline></newline> 
+					<button name="eliminarExtras" string="Eliminar extras" type="object"></button> 
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_articulo_tree">
+			<field name="name">Articulos</field>
+			<field name="model">upobebe.articulo</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of articulos">
+					<field name="name" />
+					<field name="descripcion" />
+					<field name="precio" widget="monetary" />
+					<field name="id" />
+					<field name="numeroVentas" />
+					<field name="numeroCompras" />
+					<field name="numeroExtras" />
+				</tree>
+			</field>
+		</record>
+	
+		<record model="ir.ui.view" id="view_upobebe_articulo_search">
+			<field name="name">view_upobebe_articulo_search</field>
+			<field name="model">upobebe.articulo</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Articulos">
+					<filter string="Precio > 300" domain="[('precio','>',300)]" />
+					<filter string="Precio > 100" domain="[('precio','>',100)]" />
+					<filter string="Precio &lt; 100" domain="[('precio','&lt;',100)]" />
+					<filter string="Precio &lt; 50" domain="[('precio','&lt;',50)]" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_articulo_graph">
+			<field name="name">Articulos</field>
+			<field name="model">upobebe.articulo</field>
+			<field name="arch" type="xml">
+				<graph string="Precio por articulo" type="pie">
+					<field name="name" type="row"/>
+					<field name="precio" type="measure"/>
+				</graph>
+			</field>
+		</record>
+	
+		<record id="act_articulo" model="ir.actions.act_window">
+			<field name="name">Articulos</field>
+			<field name="res_model">upobebe.articulo</field>
+			<field name="view_mode">tree,form,graph</field>
+			<field name="search_view_id" ref="view_upobebe_articulo_search"/>
+		</record>
+		<menuitem id="upobebe" name="UpoBebe" action="act_articulo" />
+		<menuitem name="Articulos" id="articulo_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver articulos" id="articulo_submenu_2"
+			parent="articulo_submenu" sequence="110" action="act_articulo" />
+	</data>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="upobebe_taller_form">
+			<field name="name">upobebe_taller_form</field>
+			<field name="model">upobebe.taller</field>
+			<field name="arch" type="xml">
+				<form string="Talleres">
+					<group string="Talleres">
+						<group>
+							<field name="nif" />
+							<field name="name" />
+						</group>
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="direccion" />
+									<field name="cp" />
+									<field name="numero" />
+									<field name="numeroReparaciones" />
+								</group>
+							</page>
+							<page string="Reparaciones">
+								<group colspan="4">
+									<field name="reparacion_ids">
+										<tree>
+											<field name="name" />
+											<field name="tipo" />
+											<field name="descripcion" />
+											<field name="precio" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+					<newline></newline> 
+					<button name="eliminarReparaciones" string="Eliminar reparaciones" type="object"></button> 	
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="upobebe_taller_tree">
+			<field name="name">Talleres</field>
+			<field name="model">upobebe.taller</field>
+			<field name="arch" type="xml">
+				<tree string="Tree of talleres">
+						<field name="name" />
+						<field name="nif" />
+						<field name="direccion" />
+						<field name="cp" />
+						<field name="numero" />
+						<field name="numeroReparaciones" />
+				</tree>
+			</field>
+		</record>
+	
+		<record id="act_taller" model="ir.actions.act_window">
+			<field name="name">Talleres</field>
+			<field name="res_model">upobebe.taller</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Talleres" id="taller_submenu" parent="upobebe"
+			sequence="100" />
+		<menuitem name="Ver talleres" id="taller_submenu_2"
+			parent="taller_submenu" sequence="110" action="act_taller" />
+	</data>
+</odoo>
